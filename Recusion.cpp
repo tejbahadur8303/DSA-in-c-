@@ -1,6 +1,6 @@
-#include <iostream>
-#include<limits.h>
-using namespace std;
+// #include <iostream>
+//  #include<limits.h>
+// using namespace std;
 
 //***factorial
 
@@ -504,53 +504,53 @@ using namespace std;
 
 
 ///MERGING OF ARRAY
-int mergeSort(int* arr, int s, int e){
-    //base case
-    if(s <= e)
-        return;
+// int mergeSort(int* arr, int s, int e){
+//     //base case
+//     if(s <= e)
+//         return;
 
-        int mid = (s+e)/2;
-        int len1 =mid -s +1;
-        int len2 = e-mid;
+//         int mid = (s+e)/2;
+//         int len1 =mid -s +1;
+//         int len2 = e-mid;
         
-        int* left = new int[len1];
-         int* right = new int[len2];
+//         int* left = new int[len1];
+//          int* right = new int[len2];
 
-         int k=s;
-         for(int i=0; i<len1; i++){
-            left[i]= arr[k];
-            k++;
-         }
+//          int k=s;
+//          for(int i=0; i<len1; i++){
+//             left[i]= arr[k];
+//             k++;
+//          }
 
-         k =mid +1;
-         for(int i=0; i<len2; i++){
-            right[i]= arr[k];
-            k++;
-         }
+//          k =mid +1;
+//          for(int i=0; i<len2; i++){
+//             right[i]= arr[k];
+//             k++;
+//          }
 
-         // merge logic
-            int leftIndex =0;
-            int rightIndex =0;
-            int mainArrayIndex =0;
+//          // merge logic
+//             int leftIndex =0;
+//             int rightIndex =0;
+//             int mainArrayIndex =0;
 
-  //left sorted kr do
-        mergeSort(arr,s,mid);
+//   //left sorted kr do
+//         mergeSort(arr,s,mid);
 
-         ///right sort krdo recursion 
-        mergeSort(arr,mid+1, e);
+//          ///right sort krdo recursion 
+//         mergeSort(arr,mid+1, e);
 
-        //merge two sorted array
+//         //merge two sorted array
 
-        merge(arr,s,e);
+//         merge(arr,s,e);
     
-}
-int main(){
-    int arr[]={4,5,13,2,12};
-    int n =5;
-    int s =0;
-    int e= n-1;
+// }
+// int main(){
+//     int arr[]={4,5,13,2,12};
+//     int n =5;
+//     int s =0;
+//     int e= n-1;
 
-}
+// }
 
 
 // //merging of two sorted array
@@ -951,3 +951,103 @@ int main(){
 
 
 
+/// MERGE OF ARRAY
+
+#include <iostream>
+using namespace std;
+
+void merge(int *arr, int s, int e) {
+
+    int mid = (s + e) / 2;
+
+    int len1 = mid - s + 1;
+    int len2 = e - mid;
+
+    // Create temporary arrays
+    int *left = new int[len1];
+    int *right = new int[len2];
+
+    // Copy left part
+    int k = s;
+
+    for(int i = 0; i < len1; i++) {
+        left[i] = arr[k];
+        k++;
+    }
+
+    // Copy right part
+    k = mid + 1;
+
+    for(int i = 0; i < len2; i++) {
+        right[i] = arr[k];
+        k++;
+    }
+
+    // Merge logic
+    int leftIndex = 0;
+    int rightIndex = 0;
+    int mainArrayIndex = s;
+
+    while(leftIndex < len1 && rightIndex < len2) {
+
+        if(left[leftIndex] < right[rightIndex]) {
+            arr[mainArrayIndex++] = left[leftIndex++];
+        }
+        else {
+            arr[mainArrayIndex++] = right[rightIndex++];
+        }
+    }
+
+    // Copy remaining left elements
+    while(leftIndex < len1) {
+        arr[mainArrayIndex++] = left[leftIndex++];
+    }
+
+    // Copy remaining right elements
+    while(rightIndex < len2) {
+        arr[mainArrayIndex++] = right[rightIndex++];
+    }
+
+    delete[] left;
+    delete[] right;
+}
+
+
+void mergeSort(int *arr, int s, int e) {
+
+    // Base case
+    if(s >= e)
+        return;
+
+    int mid = (s + e) / 2;
+
+    // Sort left part
+    mergeSort(arr, s, mid);
+
+    // Sort right part
+    mergeSort(arr, mid + 1, e);
+
+    // Merge both sorted parts
+    merge(arr, s, e);
+}
+
+
+int main() {
+
+    int arr[] = {2, 7, 2, 6, 4, 3, 6, 8};
+
+    int n = 8;
+
+    int s = 0;
+    int e = n - 1;
+
+    mergeSort(arr, s, e);
+
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
