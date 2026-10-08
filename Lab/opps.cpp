@@ -392,3 +392,104 @@ public:
     cout<<"Parent default constructor";
  }
 };
+
+
+
+// implement a program using samrt pointer(shared ptr,uniques ptr) to manage dynamic memory safely and avoid memory leakage
+#include <iostream>
+#include <memory>
+using namespace std;
+class Student
+{
+public:
+    int marks;
+    Student(int m)
+    {
+        marks = m;
+    }
+    void display()
+    {
+        cout << "Marks: " << marks << endl;
+    }
+};
+int main()
+{
+    unique_ptr<Student> s1 = make_unique<Student>(85);
+    cout << "Using Unique Pointer:" << endl;
+    s1->display();
+    shared_ptr<Student> s2 = make_shared<Student>(90);
+    shared_ptr<Student> s3 = s2;
+    cout << "\nUsing Shared Pointer:" << endl;
+    s2->display();
+    cout << "Number of owners: "<< s2.use_count() << endl;
+    return 0;
+}
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Student
+{
+private:
+    int rollNo;
+    string name;
+    float marks;
+
+public:
+    void input()
+    {
+        cout << "Enter Roll No: ";
+        cin >> rollNo;
+
+        cout << "Enter Name: ";
+        cin >> name;
+
+        cout << "Enter Marks: ";
+        cin >> marks;
+    }
+
+    void display()
+    {
+        cout << "Roll No: " << rollNo << endl;
+        cout << "Name: " << name << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+int main()
+{
+    int n;
+
+    cout << "Enter number of students: ";
+    cin >> n;
+
+    // Dynamic array of objects
+    Student *students = new Student[n];
+
+    // Pointer to object
+    Student *ptr = students;
+
+    // Input using pointer to object
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\nEnter details of Student " << i + 1 << ":\n";
+        (ptr + i)->input();
+    }
+
+    // Display using pointer to object
+    cout << "\n----- Student Details -----\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\nStudent " << i + 1 << ":\n";
+        (ptr + i)->display();
+    }
+
+    // Free dynamically allocated memory
+    delete[] students;
+
+    return 0;
+}

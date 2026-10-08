@@ -1,0 +1,1 @@
+//design a system using composition and compare it with inheritance base design for the saame problem 
