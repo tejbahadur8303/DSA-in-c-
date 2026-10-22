@@ -23,82 +23,6 @@ using namespace std;
 // }
 
 
-// class Stack {
-//     public:
-//     int *arr;
-//     int top;
-//     int size;
-
-//     Stack(int size){
-//         this->size=size;
-//        arr = new int[size];
-//         top = -1;
-//     }
-
-//     void push(int element){
-//         if(size - top >1){
-//             top++;
-//             arr[top]=element;
-
-//         }else{
-//             cout<<"stack overflow"<<endl;
-//         }
-
-//     }
-
-//     void pop(){
-//         if(top >=0){
-//             top--;
-//         }else{
-//             cout<<"stack underflow"<<endl;
-//         }
-
-//     }
-
-
-
-//     int peek(){
-//         if(top >=0){
-//             return arr[top];
-//         }else{
-//             cout<<"stack is empty";
-//         }
-//         return -1;
-
-//     }
-
-
-
-//     bool isEmpty(){
-//         if(top == -1){
-//             return true;
-//         }else{
-//             return false;
-//         }
-
-//     }
-
-
-// };
-
-// int main(){
-//     Stack st(5);
-//     st.push(20);
-//     st.push(30);
-//     st.push(40);
-//     st.push(50);
-//     st.push(60);
-//     cout<<st.peek()<<endl;
-//     st.pop();
-//     cout<<st.peek()<<endl;
-//     st.pop();
-//     cout<<st.peek()<<endl;
-//     st.pop();
-//     cout<<st.peek()<<endl;
-
-//     return 0;
-
-// }
 
 // struct node{
 //     int data;
@@ -119,8 +43,6 @@ using namespace std;
 //         head=temp;
 //     }
 // }
-
-
 
 
 
@@ -154,6 +76,9 @@ using namespace std;
 
 //     }
 // }
+
+
+
 
 // int main(){
 //     push();
@@ -197,51 +122,11 @@ using namespace std;
 // //evaluation of postfix
 
 
-// // reverse string using stack
-// //  int main (){
-// //     string str ="zamania";
-// //     stack<char>s;
-// //     for(int i=0; i<str.length(); i++){
-// //         char ch =str[i];
-// //         s.push(ch);
-// //     }
-// //     string ans ="";
-// //     while(!s.empty()){
-// //         char ch = s.top();
-// //         ans.push_back(ch);
-// //         s.pop();
-// //     }
-// //     cout<<" answer is :"<<ans<<endl;
-// //     return 0;
-// //  }
+
 
 
 //  //palindrome using stack
-// //  int main(){
-// //  string str;
-// //  cout<<"input string :"<<endl;
-// //  cin>>str;
-// //  stack<char>st;
-// //   for (char ch : str) {
-// //         st.push(ch);
-// //     }
-
-// //     bool palindrome =true;
-// //     for(char ch:str){
-// //         if(ch !=st.top()){
-// //             palindrome = false;
-// //             break;
-// //         }
-// //         st.pop();
-// //     }
-// //     if(palindrome){
-// //         cout<<"Palindrome"<<endl;
-// //     }else{
-// //         cout<<" NO"<<endl;
-// //     }
  
-// //  return 0;
-// //  }
 
 
 
@@ -249,60 +134,8 @@ using namespace std;
 
 
 // //binary of decimal
-// // int main() {
-// //     int n;
-// //     cout << "Enter a decimal number: ";
-// //     cin >> n;
+i
 
-// //     stack<int> st;
-
-// //     if (n == 0) {
-// //         cout << "Binary: 0";
-// //         return 0;
-// //     }
-
-// //     // Push remainders into the stack
-// //     while (n > 0) {
-// //         st.push(n % 2);
-// //         n = n / 2;
-// //     }
-
-// //     // Pop and print binary number
-// //     cout << "Binary: ";
-// //     while (!st.empty()) {
-// //         cout << st.top();
-// //         st.pop();
-// //     }
-
-// //     return 0;
-// // }
-
-
-
-// //decimal to binary
-// // int main() {
-// //     int n;
-// //     cin >> n;
-
-// //     stack<int> st;
-
-// //     if (n == 0) {
-// //         cout << 0;
-// //         return 0;
-// //     }
-
-// //     while (n > 0) {
-// //         st.push(n % 2);
-// //         n /= 2;
-// //     }
-
-// //     while (!st.empty()) {
-// //         cout << st.top();
-// //         st.pop();
-// //     }
-
-// //     return 0;
-// // }
 
 
 // //infix to prefix
